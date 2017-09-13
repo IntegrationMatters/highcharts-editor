@@ -198,6 +198,9 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
             dataImpStep = wizbar.addStep({ title: highed.getLocalizedStr('stepImport') }),
             dataImp = highed.DataImporter(dataImpStep.body, properties.importer),
 
+            queryImpStep = wizbar.addStep({ title: 'Query Result' }),
+            queryImp = highed.DataImporter(dataImpStep.body, properties.importer),
+
             dataTableStep = wizbar.addStep({ title: highed.getLocalizedStr('stepData'), id: 'stepData' }),
             dataTable = highed.DataTable(dataTableStep.body),
 
@@ -319,6 +322,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
             dataExp.resize(cs.w, cs.h - ms.h - wb.h);
             chartPreview.resize();
             dataImp.resize(cs.w, cs.h - ms.h - wb.h);
+            queryImp.resize(cs.w, cs.h - ms.h - wb.h);
             dataTable.resize();
             events.emit('Resized');
 
@@ -389,12 +393,16 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
               padding: '0 20px'
             });
 
-            highed.dom.ap(welcomeStep.body,
+              highed.dom.ap(welcomeStep.body,
                 highed.dom.cr('h2', '', 'Welcome'),
                 highed.dom.cr('div', '', 'This wizard will take you through the process of creating your very own chart.'),
                 highed.dom.cr('br'),
                 highed.dom.cr('div', '', 'Follow the steps below to get started!')
-            );
+              );
+
+              highed.dom.ap(queryImpStep.body,
+                highed.dom.cr('div', '', '<div ui-codemirror="$ctrl.queryResultOptions" id="nj-highcharts-editor-query-result"></div>')
+              );
         });
 
         ////////////////////////////////////////////////////////////////////////

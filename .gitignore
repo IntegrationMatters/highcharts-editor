@@ -1,12 +1,13 @@
 node_modules/
 .DS_Store
-dist/
-out/
 cache/
 *.zip
 api.js
-output
-docs/
 demos/
 generated_src
 
+/.idea/
+/cache/
+/generated_src/
+/dist/
+/docs/

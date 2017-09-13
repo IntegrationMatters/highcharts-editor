@@ -5,7 +5,7 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "install": "gulp"
+    "install": "gulp with-advanced"
   },
   "devDependencies": {
     "async": "^2.0.0",
